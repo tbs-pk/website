@@ -1,0 +1,66 @@
+
+> tbs-website@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /workspaces/move_on/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /workspaces/move_on/tbs-website/package-lock.json
+
+   ▲ Next.js 15.5.18 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://10.0.0.8:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Compiled middleware in 441ms
+ ✓ Ready in 1819ms
+ ○ Compiling / ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ ✓ Compiled / in 6.6s
+ GET / 200 in 7607ms
+ ✓ Compiled /_not-found/page in 463ms
+ GET /course-ai.svg 404 in 658ms
+ ✓ Compiled /admin/login in 405ms
+ GET /admin/login 200 in 649ms
+ ✓ Compiled /api/admin/login in 106ms
+ ⨯ ./tbs-website/pages/api/admin/login.ts:4:1
+Module not found: Can't resolve '../../lib/auth'
+[0m [90m 2 |[39m [36mimport[39m { [33mPrismaClient[39m } [36mfrom[39m [32m'@prisma/client'[39m[33m;[39m
+ [90m 3 |[39m [36mimport[39m bcrypt [36mfrom[39m [32m'bcryptjs'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { encrypt } [36mfrom[39m [32m'../../lib/auth'[39m[33m;[39m [90m// Tabbatar da wannan path din ko ka yi amfani da asalin lib dinka[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 5 |[39m [36mimport[39m { serialize } [36mfrom[39m [32m'cookie'[39m[33m;[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mconst[39m prisma [33m=[39m [36mnew[39m [33mPrismaClient[39m()[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./tbs-website/pages/api/admin/login.ts:5:1
+Module not found: Can't resolve 'cookie'
+[0m [90m 3 |[39m [36mimport[39m bcrypt [36mfrom[39m [32m'bcryptjs'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { encrypt } [36mfrom[39m [32m'../../lib/auth'[39m[33m;[39m [90m// Tabbatar da wannan path din ko ka yi amfani da asalin lib dinka[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { serialize } [36mfrom[39m [32m'cookie'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mconst[39m prisma [33m=[39m [36mnew[39m [33mPrismaClient[39m()[33m;[39m
+ [90m 8 |[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 2.1s
+ POST /api/admin/login 500 in 2253ms
+[?25h

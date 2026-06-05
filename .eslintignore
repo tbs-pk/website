@@ -1,0 +1,4 @@
+src/app/tips-tricks/_[id]-backup/
+src/app/tips-tricks/_[slug]/
+src/app/tips-tricks/_[tipId]/
+src/app/tips-tricks/[id]/
