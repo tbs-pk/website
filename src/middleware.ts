@@ -53,10 +53,43 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // Kare student routes - courses, dashboard, profile, etc.
+  const protectedStudentRoutes = ['/courses', '/tools', '/tips-tricks', '/dashboard', '/profile'];
+  const isProtectedStudentRoute = protectedStudentRoutes.some(route => pathname.startsWith(route));
+  
+  if (isProtectedStudentRoute) {
+    const studentSessionCookie = request.cookies.get('student_session')?.value;
+    
+    if (!studentSessionCookie) {
+      const url = request.nextUrl.clone();
+      url.pathname = '/login';
+      return NextResponse.redirect(url);
+    }
+
+    try {
+      const { payload } = await jwtVerify(studentSessionCookie, key, {
+        algorithms: ['HS256'],
+      });
+
+      if (!payload || (payload.expires && Date.now() > new Date(payload.expires as string).getTime())) {
+        throw new Error("Session expired");
+      }
+
+      return NextResponse.next();
+
+    } catch (error) {
+      const url = request.nextUrl.clone();
+      url.pathname = '/login';
+      const response = NextResponse.redirect(url);
+      response.cookies.delete('student_session');
+      return response;
+    }
+  }
+
   return NextResponse.next();
 }
 
 // Takaita middleware din ya kula da shafukan admin kawai domin gudun jinkirin uwar garke
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: ['/admin/:path*', '/courses/:path*', '/tools/:path*', '/tips-tricks/:path*', '/dashboard', '/profile'],
 };
